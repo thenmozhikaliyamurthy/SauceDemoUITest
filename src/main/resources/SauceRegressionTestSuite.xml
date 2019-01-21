@@ -3,7 +3,7 @@
     <test name = "Sauce Demo Tests" configfailurepolicy="skip">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name = "com.saucelab.RegressionTests.AddtoCartTest"/>
+            <class name = "com.saucelab.regressionTest.AddtoCartTest"/>
         </classes>
     </test>
 </suite>
