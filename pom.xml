@@ -70,7 +70,7 @@
                 <configuration>
                     <!-- Include TestNG Suite file to be executed during Execution -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/main/resources/TMDBServiceIntegrationTestSuite.xml</suiteXmlFile>
+                        <suiteXmlFile>src/main/resources/SauceRegressionTestSuite.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
