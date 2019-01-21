@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<suite name="Sauce Demo Test suite" configfailurepolicy="continue" verbose="1" parallel="tests" thread-count="1">
+    <test name = "Sauce Demo Tests" configfailurepolicy="skip">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name = "com.saucelab.RegressionTests.AddtoCartTest"/>
+        </classes>
+    </test>
+</suite>
