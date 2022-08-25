@@ -24,24 +24,45 @@ public class CartPage extends BasePage {
     private List<WebElement> itemsInCart;
 
 
-    public boolean validateItemsinCart(String[] productName){
+   // @FindBy(css =".btn_inventory" )
+    private WebElement AddToCartButton;
 
+
+     @FindBy(css=".inventory_item_name")
+      private WebElement addItem;
+
+    @FindBy(css=".inventory_item_price")
+    private WebElement productPrice;
+
+    @FindBy(css=".cart_quantity")
+    private WebElement productQty;
+    @FindBy (css = ".shopping_cart_badge")
+    private WebElement cartBadge;
+
+    @FindBy(id ="checkout")
+    private WebElement checkoutItem;
+
+    public boolean validateItemsinCart(String[] productName){
         wait.until(ExpectedConditions.visibilityOf(shoppingCart));
         boolean isDisplayed =false ;
         shoppingCart.click();
-        for(int i = 0;i<productName.length;i++) {
-            String itemName = itemsInCart.get(i).getText();
-            if (productName[i].contains(itemName)) {
-                isDisplayed = true;
-            } else {
-                isDisplayed = false;
-            }
-        }
-
         return isDisplayed;
+    }
 
+    public void clickAddtoCart() {
+        wait.until(ExpectedConditions.visibilityOf(AddToCartButton));
+        AddToCartButton.click();
+    }
+
+    public int getQuantity(){
+        return Integer.parseInt(productQty.getText());
     }
 
 
+    //public String toString() {
+        //return super.toString(cartBadge.getText());
+    //}
 
+    public void clickCart() {
+    }
 }

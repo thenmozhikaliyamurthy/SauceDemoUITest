@@ -26,12 +26,7 @@ public class BasePage {
     private WebElement shoppingCart;
 
 
-    public void clickCart(){
 
-        wait.until(ExpectedConditions.visibilityOf(shoppingCart));
-        shoppingCart.click();
-
-    }
 
 
 

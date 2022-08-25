@@ -12,16 +12,14 @@ import org.testng.annotations.Test;
 
 public class AddtoCartTest extends BaseTest{
 
-    @Parameters({"browser"})
-    @BeforeClass
     public void setUp(String browser) throws Exception {
         driver= setupDriver(browser);
         configProp  = loadProperties();
     }
 
     @Test
-    public void addToCart(){
-
+    public void addToCart() throws Exception {
+        setUp("chrome");
 
         //Login with Passed username and password
         LoginPage loginPage = new LoginPage(driver);
@@ -36,15 +34,14 @@ public class AddtoCartTest extends BaseTest{
         String[] items = configProp.getProperty("ProductsToCart").split(",");
         products.addtoCart(items);
 
-        //click Shopping Cart
-
-        products.clickCart();
-
         //Check Items in cart
         CartPage cart = new CartPage(driver);
+        cart.clickAddtoCart();
+        //Cartbadge.clickCart();
         takeScreenshot("cartPage");
-        Assert.assertTrue(cart.validateItemsinCart(items));
-
+        Assert.assertEquals(cart.getQuantity(),1,"cart qty is not matching");
+        /*add more assertion */
+        // Add to Cart page
     }
 
     @AfterClass
